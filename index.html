@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartik Sain | Data Analyst & Quantitative Specialist</title>
+    <meta name="description" content="Portfolio & Resume of Kartik Sain - Data Analyst, SQL Analyst, Business Analyst, and MIS Specialist trained at Masai School & E&ICT Academy, IIT Roorkee.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Data Analyst Futuristic Dashboard Theme */
+        :root {
+            --bg-body: #090d16;
+            --bg-surface: #111827;
+            --bg-card: rgba(17, 24, 39, 0.75);
+            --bg-card-hover: rgba(31, 41, 55, 0.9);
+            --border-color: rgba(56, 189, 248, 0.15);
+            --border-glow: rgba(56, 189, 248, 0.4);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --primary-gradient: linear-gradient(135deg, #0284c7 0%, #6366f1 50%, #10b981 100%);
+            --accent-cyan: #38bdf8;
+            --accent-emerald: #10b981;
+            --accent-purple: #818cf8;
+            --shadow-color: rgba(0, 0, 0, 0.6);
+            --badge-bg: rgba(56, 189, 248, 0.12);
+            --badge-text: #38bdf8;
+            --card-border: 1px solid rgba(56, 189, 248, 0.15);
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-code: 'Fira Code', monospace;
+        }
+
+        [data-theme="light"] {
+            --bg-body: #f1f5f9;
+            --bg-surface: #ffffff;
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --bg-card-hover: #ffffff;
+            --border-color: rgba(2, 132, 199, 0.18);
+            --border-glow: rgba(2, 132, 199, 0.4);
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --primary: #0284c7;
+            --primary-gradient: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+            --accent-cyan: #0284c7;
+            --accent-emerald: #059669;
+            --accent-purple: #4f46e5;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+            --badge-bg: rgba(2, 132, 199, 0.1);
+            --badge-text: #0284c7;
+            --card-border: 1px solid rgba(2, 132, 199, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-body);
+            background-image: 
+                linear-gradient(to right, rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+        .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+        /* Navbar */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: rgba(9, 13, 22, 0.85); backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        [data-theme="light"] .navbar { background: rgba(241, 245, 249, 0.88); }
+
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+
+        .logo {
+            font-size: 22px; font-weight: 800; color: var(--text-main); text-decoration: none;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .logo-badge {
+            background: var(--badge-bg); color: var(--accent-cyan); font-size: 11px;
+            font-weight: 700; padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border-color);
+            font-family: var(--font-code);
+        }
+
+        .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
+
+        .nav-link {
+            color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 14px;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover { color: var(--accent-cyan); }
+
+        .theme-toggle-btn {
+            background: transparent; border: 1px solid var(--border-color); color: var(--text-main);
+            width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; cursor: pointer; transition: all 0.2s ease;
+        }
+        .theme-toggle-btn:hover { background: var(--badge-bg); color: var(--accent-cyan); }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 10px 22px; font-weight: 600; font-size: 14px; border-radius: 8px;
+            text-decoration: none; cursor: pointer; transition: all 0.25s ease; border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient); color: #ffffff;
+            box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(2, 132, 199, 0.5); }
+
+        .btn-outline {
+            background: transparent; color: var(--text-main); border: 1px solid var(--border-color);
+        }
+        .btn-outline:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); background: var(--badge-bg); transform: translateY(-2px); }
+
+        /* Hero */
+        .hero { padding: 140px 0 80px 0; min-height: 85vh; display: flex; align-items: center; }
+
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+
+        .status-badge {
+            display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px;
+            background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 30px; font-size: 13px; font-weight: 600; margin-bottom: 20px;
+        }
+
+        .pulse-dot {
+            width: 8px; height: 8px; background-color: #10b981; border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); animation: pulse 1.8s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .hero h1 { font-size: 46px; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+
+        .gradient-text {
+            background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .hero p { font-size: 16px; color: var(--text-muted); margin-bottom: 28px; max-width: 600px; }
+
+        .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+
+        /* Analyst Hero Dashboard */
+        .dashboard-card {
+            background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: 20px;
+            padding: 24px; box-shadow: 0 20px 40px var(--shadow-color); backdrop-filter: blur(12px);
+        }
+
+        .dashboard-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 14px; margin-bottom: 20px;
+        }
+
+        .window-dots { display: flex; gap: 6px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background-color: #ef4444; }
+        .dot-yellow { background-color: #f59e0b; }
+        .dot-green { background-color: #10b981; }
+
+        .window-title { font-family: var(--font-code); font-size: 12px; color: var(--accent-cyan); font-weight: 600; }
+
+        .analyst-photo-wrap {
+            width: 130px; height: 130px; border-radius: 50%; border: 3px solid var(--accent-cyan);
+            overflow: hidden; margin: 0 auto 16px auto; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+        .analyst-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+        /* Live Analytics KPI Cards */
+        .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+
+        .kpi-box {
+            background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-color);
+            padding: 12px; border-radius: 10px; text-align: center;
+        }
+        [data-theme="light"] .kpi-box { background: rgba(241, 245, 249, 0.8); }
+
+        .kpi-num { font-size: 18px; font-weight: 800; color: var(--accent-cyan); }
+        .kpi-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Section Common */
+        .section { padding: 90px 0; }
+        .section-title-wrap { text-align: center; max-width: 650px; margin: 0 auto 50px auto; }
+        .section-subtitle {
+            color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+            font-size: 12px; margin-bottom: 8px; display: block; font-family: var(--font-code);
+        }
+        .section-title-wrap h2 { font-size: 34px; font-weight: 800; }
+
+        /* SQL Console Terminal */
+        .sql-console {
+            background: #090d16; border: 1px solid var(--border-glow); border-radius: 16px;
+            padding: 24px; font-family: var(--font-code); color: #e2e8f0;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5); margin-top: 30px;
+        }
+
+        .sql-nav { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+        .sql-tab {
+            background: rgba(30, 41, 59, 0.8); border: 1px solid var(--border-color);
+            color: var(--text-muted); padding: 6px 14px; border-radius: 6px; font-size: 12px;
+            cursor: pointer; transition: all 0.2s ease;
+        }
+        .sql-tab.active, .sql-tab:hover { background: var(--accent-cyan); color: #090d16; font-weight: 700; }
+
+        .sql-code-block {
+            background: #0f172a; padding: 16px; border-radius: 10px;
+            border-left: 4px solid var(--accent-cyan); font-size: 13px; line-height: 1.6;
+            overflow-x: auto; margin-bottom: 16px;
+        }
+
+        .keyword { color: #f43f5e; font-weight: 700; }
+        .string { color: #10b981; }
+        .function { color: #38bdf8; font-weight: 600; }
+
+        .sql-table-output { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 10px; }
+        .sql-table-output th, .sql-table-output td { padding: 8px 12px; border: 1px solid rgba(255, 255, 255, 0.08); text-align: left; }
+        .sql-table-output th { background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); }
+
+        /* Cards & Grid */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .card {
+            background: var(--bg-card); backdrop-filter: blur(10px); border: var(--card-border);
+            border-radius: 16px; padding: 28px; transition: all 0.3s ease;
+        }
+        .card:hover { transform: translateY(-4px); border-color: var(--accent-cyan); box-shadow: 0 12px 30px var(--shadow-color); }
+
+        /* Skills Filter */
+        .skills-filter { display: flex; justify-content: center; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
+        .filter-btn {
+            background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-muted);
+            padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s ease;
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--accent-cyan); color: #090d16; border-color: var(--accent-cyan); }
+
+        .skills-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+        .skill-tag {
+            background: var(--badge-bg); color: var(--badge-text); padding: 6px 14px;
+            border-radius: 8px; font-size: 13px; font-weight: 600; border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Timeline */
+        .timeline { position: relative; max-width: 840px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; top: 0; left: 24px; height: 100%; width: 2px; background: var(--border-color); }
+        .timeline-card { position: relative; padding-left: 65px; margin-bottom: 32px; }
+        .timeline-icon {
+            position: absolute; left: 8px; top: 0; width: 34px; height: 34px; border-radius: 50%;
+            background: var(--primary-gradient); color: #ffffff; display: flex; align-items: center;
+            justify-content: center; font-weight: 700; font-size: 14px; box-shadow: 0 0 0 6px var(--bg-body);
+        }
+        .timeline-content { background: var(--bg-card); border: var(--card-border); border-radius: 14px; padding: 24px; }
+        .timeline-date { display: inline-block; font-size: 12px; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; font-family: var(--font-code); }
+        .timeline-title { font-size: 18px; font-weight: 700; color: var(--text-main); }
+        .timeline-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; font-style: italic; }
+
+        /* Contact Grid */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .contact-info-card { background: var(--bg-card); border: var(--card-border); border-radius: 16px; padding: 30px; }
+        .contact-method { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .contact-icon {
+            width: 44px; height: 44px; border-radius: 12px; background: var(--badge-bg);
+            color: var(--accent-cyan); display: flex; align-items: center; justify-content: center; font-size: 20px;
+        }
+        .contact-detail h4 { font-size: 13px; color: var(--text-muted); }
+        .contact-detail a { font-size: 15px; font-weight: 600; color: var(--text-main); text-decoration: none; }
+
+        /* Footer */
+        footer { padding: 40px 0; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 14px; }
+
+        @media (max-width: 868px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 34px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .kpi-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                Kartik<span>Sain</span>
+                <span class="logo-badge">SQL & ANALYTICS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#summary" class="nav-link">Summary</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#sql-demo" class="nav-link">SQL Console</a></li>
+                <li><a href="#training" class="nav-link">Training</a></li>
+                <li><a href="#aptitude" class="nav-link">Aptitude</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Theme">
+                    <!-- Icon inserted via JS -->
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="status-badge">
+                        <span class="pulse-dot"></span>
+                        Available for Data Analyst, Business Analyst & SQL Roles
+                    </div>
+                    <h1>Kartik Sain <br><span class="gradient-text">Data Analyst Specialist</span></h1>
+                    <p>
+                        B.Sc. Statistics graduate with quantitative analytical mastery. Currently pursuing advanced Data Analysis, SQL, AI, and Machine Learning training through Masai School in collaboration with <strong>E&ICT Academy, IIT Roorkee</strong>.
+                    </p>
+                    
+                    <!-- Direct Connect Action Buttons -->
+                    <div class="hero-cta">
+                        <a href="tel:+918859774084" class="btn btn-primary">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            Call Directly
+                        </a>
+                        <a href="mailto:kartiksain6111@gmail.com" class="btn btn-primary" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            Send Email
+                        </a>
+                        <a href="https://wa.me/918859774084" target="_blank" class="btn btn-outline" style="border-color: #25d366; color: #25d366;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.146 4.187 4.289-1.126z"/></svg>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Analyst Dashboard Card with Kartik's Photo -->
+                <div class="dashboard-card">
+                    <div class="dashboard-header">
+                        <div class="window-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <div class="window-title">kartik_sain_analytics_v2.sql</div>
+                    </div>
+                    
+                    <div class="analyst-photo-wrap">
+                        <img src="kartik_photo.jpg" alt="Kartik Sain Photo">
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 14px;">
+                        <h3 style="font-size: 18px; color: var(--text-main);">Kartik Sain</h3>
+                        <p style="font-size: 12px; color: var(--accent-cyan); font-family: var(--font-code);">B.Sc. Statistics | IIT Roorkee & Masai Fellow</p>
+                    </div>
+
+                    <div class="kpi-grid">
+                        <div class="kpi-box">
+                            <div class="kpi-num">SQL</div>
+                            <div class="kpi-label">Queries & Joins</div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-num">Excel</div>
+                            <div class="kpi-label">Pivot & Formulas</div>
+                        </div>
+                        <div class="kpi-box">
+                            <div class="kpi-num">99%+</div>
+                            <div class="kpi-label">Quant Aptitude</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section class="section" id="summary">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">// 01. EXECUTIVE SUMMARY</span>
+                <h2>Professional Summary</h2>
+            </div>
+            
+            <div class="card" style="max-width: 880px; margin: 0 auto;">
+                <p style="font-size: 16px; line-height: 1.8;">
+                    Detail-oriented and quantitatively focused Statistics graduate (B.Sc.) currently undergoing decision-centric, industry-aligned training in <strong>Data Analysis, SQL, AI, and Machine Learning</strong> through Masai School in collaboration with <strong>E&ICT Academy, IIT Roorkee</strong>. Possesses strong analytical thinking, statistical reasoning, and data interpretation skills honed through academic coursework and competitive examination rigor. A disciplined and quick learner equipped with practical problem-solving capabilities, seeking an entry-level position as a Data Analyst, Business Analyst, SQL Analyst, or MIS Executive to drive data-informed decision-making.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">// 02. CORE STACK</span>
+                <h2>Technical & Analytical Skills</h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="skills-filter">
+                <button class="filter-btn active" data-filter="all">All Skills</button>
+                <button class="filter-btn" data-filter="analytics">Data Analytics & Stats</button>
+                <button class="filter-btn" data-filter="database">SQL & Databases</button>
+                <button class="filter-btn" data-filter="tools">Tools & AI/ML</button>
+                <button class="filter-btn" data-filter="core">Core Competencies</button>
+            </div>
+
+            <!-- Skills Cards -->
+            <div class="card-grid">
+                <div class="card skills-card-item" data-category="analytics">
+                    <h3 style="margin-bottom: 12px; font-size: 18px; color: var(--accent-cyan);">Data Analytics & Statistics</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Data Cleaning</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Data Interpretation</span>
+                        <span class="skill-tag">Statistical Analysis</span>
+                        <span class="skill-tag">Descriptive & Inferential Stats</span>
+                    </div>
+                </div>
+
+                <div class="card skills-card-item" data-category="database">
+                    <h3 style="margin-bottom: 12px; font-size: 18px; color: var(--accent-cyan);">Database & Query Languages</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Complex Querying</span>
+                        <span class="skill-tag">Joins & Aggregations</span>
+                        <span class="skill-tag">Filtering & Grouping</span>
+                    </div>
+                </div>
+
+                <div class="card skills-card-item" data-category="tools">
+                    <h3 style="margin-bottom: 12px; font-size: 18px; color: var(--accent-cyan);">Tools & AI/ML</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Microsoft Excel</span>
+                        <span class="skill-tag">Power BI (Learning)</span>
+                        <span class="skill-tag">Python (Learning)</span>
+                        <span class="skill-tag">Artificial Intelligence (Learning)</span>
+                        <span class="skill-tag">Machine Learning (Learning)</span>
+                    </div>
+                </div>
+
+                <div class="card skills-card-item" data-category="core">
+                    <h3 style="margin-bottom: 12px; font-size: 18px; color: var(--accent-cyan);">Core Aptitude & Soft Skills</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Quantitative Aptitude</span>
+                        <span class="skill-tag">Analytical Thinking</span>
+                        <span class="skill-tag">Logical Reasoning</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Attention to Detail</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Disciplined & Consistent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SQL Console Interactive Terminal -->
+    <section class="section" id="sql-demo">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">// 03. INTERACTIVE DEMO</span>
+                <h2>Data Analyst SQL Console</h2>
+            </div>
+
+            <div class="sql-console">
+                <div class="sql-nav">
+                    <button class="sql-tab active" data-query="query1">Query 1: Statistical Aggregations</button>
+                    <button class="sql-tab" data-query="query2">Query 2: Quant Aptitude Evaluation</button>
+                    <button class="sql-tab" data-query="query3">Query 3: IIT Roorkee Pipeline Status</button>
+                </div>
+
+                <div class="sql-code-block" id="sql-code-display">
+<span class="keyword">SELECT</span> category, <span class="function">COUNT</span>(*) <span class="keyword">AS</span> total_records, <span class="function">AVG</span>(confidence_score) <span class="keyword">AS</span> avg_score
+<span class="keyword">FROM</span> raw_dataset
+<span class="keyword">WHERE</span> status = <span class="string">'Verified'</span>
+<span class="keyword">GROUP BY</span> category
+<span class="keyword">ORDER BY</span> avg_score <span class="keyword">DESC</span>;
+                </div>
+
+                <div style="font-size: 12px; color: var(--accent-emerald); font-family: var(--font-code); margin-bottom: 8px;">
+                    ✔ Query Executed Successfully (0.014 sec) — Result Table Output:
+                </div>
+
+                <table class="sql-table-output" id="sql-table-display">
+                    <thead>
+                        <tr><th>Category</th><th>Total Records</th><th>Avg Confidence Score</th><th>Data Status</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Statistical Analytics</td><td>1,420</td><td>98.4%</td><td><span style="color:#10b981;">Clean</span></td></tr>
+                        <tr><td>SQL Querying</td><td>2,850</td><td>96.8%</td><td><span style="color:#10b981;">Clean</span></td></tr>
+                        <tr><td>Data Cleaning (Excel)</td><td>3,100</td><td>99.1%</td><td><span style="color:#10b981;">Clean</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training & Education Section -->
+    <section class="section" id="training">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">// 04. EDUCATION & TRAININGS</span>
+                <h2>Training & Education Journey</h2>
+            </div>
+
+            <div class="timeline">
+                <!-- Training -->
+                <div class="timeline-card">
+                    <div class="timeline-icon">1</div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Currently Pursuing</span>
+                        <h3 class="timeline-title">Masai School (E&ICT Academy, IIT Roorkee)</h3>
+                        <div class="timeline-sub">Program: Data Analysis, SQL, Artificial Intelligence & Machine Learning</div>
+                        <p>Undergoing intensive, project-oriented training covering SQL, Excel, Data Analysis, Python, Power BI, Artificial Intelligence, and Machine Learning.</p>
+                    </div>
+                </div>
+
+                <!-- B.Sc. Statistics -->
+                <div class="timeline-card">
+                    <div class="timeline-icon">2</div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021 Graduation</span>
+                        <h3 class="timeline-title">Meerut College, Meerut</h3>
+                        <div class="timeline-sub">Degree: Bachelor of Science (B.Sc.) in Statistics — Percentage: 55.75%</div>
+                        <p>Built a fundamental foundation in mathematical statistics, probability theory, statistical reasoning, data distribution, and analytical modeling.</p>
+                    </div>
+                </div>
+
+                <!-- Class XII -->
+                <div class="timeline-card">
+                    <div class="timeline-icon">3</div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2018</span>
+                        <h3 class="timeline-title">GTB Public School</h3>
+                        <div class="timeline-sub">Class XII — Percentage: 74%</div>
+                    </div>
+                </div>
+
+                <!-- Class X -->
+                <div class="timeline-card">
+                    <div class="timeline-icon">4</div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2016</span>
+                        <h3 class="timeline-title">St. Francis Convent School</h3>
+                        <div class="timeline-sub">ICSE Class X — Percentage: 79.8%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aptitude & Discipline Section -->
+    <section class="section" id="aptitude">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">// 05. QUANTITATIVE RIGOR</span>
+                <h2>Competitive Examination Experience</h2>
+            </div>
+
+            <div class="card" style="max-width: 880px; margin: 0 auto;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+                    <h3 style="font-size: 20px; color: var(--accent-cyan);">Competitive Examination Preparation</h3>
+                    <span style="font-weight: 700; color: var(--text-muted); font-family: var(--font-code);">2021 – 2026</span>
+                </div>
+                
+                <p style="margin-bottom: 16px;">
+                    Qualified multiple competitive examinations and progressed through various selection stages, demonstrating strong quantitative aptitude, logical reasoning, and determination, while narrowly missing the final merit list.
+                </p>
+
+                <h4 style="font-size: 14px; margin-bottom: 8px; color: var(--text-main); font-family: var(--font-code);">KEY COMPETENCIES DEVELOPED:</h4>
+                <div class="skills-tags">
+                    <span class="skill-tag">Quantitative Aptitude</span>
+                    <span class="skill-tag">Logical Reasoning</span>
+                    <span class="skill-tag">Data Interpretation</span>
+                    <span class="skill-tag">Analytical Thinking</span>
+                    <span class="skill-tag">Time Management</span>
+                    <span class="skill-tag">Consistency</span>
+                    <span class="skill-tag">Discipline</span>
+                    <span class="skill-tag">Ability to Work Under Pressure</span>
+                    <span class="skill-tag">Perseverance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Direct Connect Action Buttons -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">// 06. CONNECT</span>
+                <h2>Direct Contact & Connect</h2>
+            </div>
+
+            <div class="contact-grid" style="max-width: 880px; margin: 0 auto;">
+                <!-- Direct Email Card -->
+                <div class="contact-info-card">
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-detail">
+                            <h4>Email Address</h4>
+                            <a href="mailto:kartiksain6111@gmail.com">kartiksain6111@gmail.com</a>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="mailto:kartiksain6111@gmail.com" class="btn btn-primary" style="flex: 1;">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            Direct Email
+                        </a>
+                        <button class="btn btn-outline" id="copy-email-btn" onclick="copyToClipboard('kartiksain6111@gmail.com', 'copy-email-btn')" style="padding: 10px 14px;" title="Copy Email">
+                            📋
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Direct Phone Card -->
+                <div class="contact-info-card">
+                    <div class="contact-method">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-detail">
+                            <h4>Phone Number</h4>
+                            <a href="tel:+918859774084">+91 8859774084</a>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="tel:+918859774084" class="btn btn-primary" style="flex: 1;">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            Direct Call
+                        </a>
+                        <a href="https://wa.me/918859774084" target="_blank" class="btn btn-outline" style="padding: 10px 14px; border-color: #25d366; color: #25d366;" title="WhatsApp Chat">
+                            💬
+                        </a>
+                        <button class="btn btn-outline" id="copy-phone-btn" onclick="copyToClipboard('+918859774084', 'copy-phone-btn')" style="padding: 10px 14px;" title="Copy Phone">
+                            📋
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Kartik Sain. All Rights Reserved. Built for Data Analytics & Business Intelligence Excellence.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const currentTheme = localStorage.getItem('theme') || 'dark';
+            
+            if (currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                updateThemeIcon('light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                updateThemeIcon('dark');
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                const theme = document.documentElement.getAttribute('data-theme');
+                if (theme === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    updateThemeIcon('dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                    updateThemeIcon('light');
+                }
+            });
+
+            function updateThemeIcon(theme) {
+                if (theme === 'light') {
+                    themeToggleBtn.innerHTML = `
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>`;
+                } else {
+                    themeToggleBtn.innerHTML = `
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                        </svg>`;
+                }
+            }
+
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const skillCards = document.querySelectorAll('.skills-card-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    skillCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // SQL Console Switcher
+            const sqlTabs = document.querySelectorAll('.sql-tab');
+            const sqlCode = document.getElementById('sql-code-display');
+            const sqlTable = document.getElementById('sql-table-display');
+
+            const sqlQueries = {
+                query1: {
+                    code: `<span class="keyword">SELECT</span> category, <span class="function">COUNT</span>(*) <span class="keyword">AS</span> total_records, <span class="function">AVG</span>(confidence_score) <span class="keyword">AS</span> avg_score\n<span class="keyword">FROM</span> raw_dataset\n<span class="keyword">WHERE</span> status = <span class="string">'Verified'</span>\n<span class="keyword">GROUP BY</span> category\n<span class="keyword">ORDER BY</span> avg_score <span class="keyword">DESC</span>;`,
+                    table: `
+                        <thead>
+                            <tr><th>Category</th><th>Total Records</th><th>Avg Confidence Score</th><th>Data Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Statistical Analytics</td><td>1,420</td><td>98.4%</td><td><span style="color:#10b981;">Clean</span></td></tr>
+                            <tr><td>SQL Querying</td><td>2,850</td><td>96.8%</td><td><span style="color:#10b981;">Clean</span></td></tr>
+                            <tr><td>Data Cleaning (Excel)</td><td>3,100</td><td>99.1%</td><td><span style="color:#10b981;">Clean</span></td></tr>
+                        </tbody>`
+                },
+                query2: {
+                    code: `<span class="keyword">WITH</span> clean_data <span class="keyword">AS</span> (\n    <span class="keyword">SELECT</span> candidate_id, quantitative_score, logical_score\n    <span class="keyword">FROM</span> exam_attempts\n    <span class="keyword">WHERE</span> percentile >= 95.0\n)\n<span class="keyword">SELECT</span> candidate_id, <span class="function">ROUND</span>(quantitative_score, 2) <span class="keyword">AS</span> quant\n<span class="keyword">FROM</span> clean_data;`,
+                    table: `
+                        <thead>
+                            <tr><th>Candidate ID</th><th>Quant Aptitude Score</th><th>Percentile Tier</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>KARTIK_SAIN_01</td><td>98.5 / 100</td><td>Top 1% Qualified Stage</td></tr>
+                            <tr><td>KARTIK_SAIN_02</td><td>97.2 / 100</td><td>Top 1% Qualified Stage</td></tr>
+                        </tbody>`
+                },
+                query3: {
+                    code: `<span class="keyword">UPDATE</span> analytics_pipeline\n<span class="keyword">SET</span> status = <span class="string">'Active Training @ IIT Roorkee & Masai'</span>,\n    skills = <span class="string">'SQL, Excel, Python, Power BI, AI/ML'</span>\n<span class="keyword">WHERE</span> candidate_name = <span class="string">'Kartik Sain'</span>;`,
+                    table: `
+                        <thead>
+                            <tr><th>Status</th><th>Modules Trained</th><th>Institute Partner</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span style="color:#38bdf8; font-weight:bold;">Currently Pursuing</span></td><td>SQL, Excel, Python, Power BI, AI/ML</td><td>E&ICT Academy, IIT Roorkee + Masai School</td></tr>
+                        </tbody>`
+                }
+            };
+
+            if (sqlTabs && sqlCode && sqlTable) {
+                sqlTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        sqlTabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        const key = tab.getAttribute('data-query');
+                        if (sqlQueries[key]) {
+                            sqlCode.innerHTML = sqlQueries[key].code;
+                            sqlTable.innerHTML = sqlQueries[key].table;
+                        }
+                    });
+                });
+            }
+
+            window.copyToClipboard = function(text, elementId) {
+                navigator.clipboard.writeText(text).then(() => {
+                    const btn = document.getElementById(elementId);
+                    const originalText = btn.innerText;
+                    btn.innerText = 'Copied!';
+                    btn.style.backgroundColor = '#10b981';
+                    btn.style.color = '#ffffff';
+                    setTimeout(() => {
+                        btn.innerText = originalText;
+                        btn.style.backgroundColor = '';
+                        btn.style.color = '';
+                    }, 2000);
+                });
+            };
+        });
+    </script>
+</body>
+</html>
